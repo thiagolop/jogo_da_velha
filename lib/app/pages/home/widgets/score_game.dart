@@ -13,16 +13,18 @@ class ScoreGame extends StatelessWidget {
     return Consumer<HomeController>(
       builder: (_, controller, __) {
         return Stack(
+          alignment: Alignment.center,
           children: [
             Positioned(
-              top: 10,
+              top: 24.heigth,
               left: 0,
               right: 0,
               child: Container(
+                height: 120.heigth,
                 width: double.maxFinite,
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                 decoration: BoxDecoration(
-                  gradient: context.colorsApp.gradient,
+                  gradient: context.colorsApp.gradientName,
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(10),
                     topLeft: Radius.circular(10),
@@ -34,14 +36,39 @@ class ScoreGame extends StatelessWidget {
                   children: [
                     Text(
                       controller.namePlayer2,
-                      style: context.textStyles.textCoiny.copyWith(fontSize: 24),
+                      style: context.textStyles.textCoiny.copyWith(fontSize: 20),
                       overflow: TextOverflow.ellipsis,
                     ),
                     const Spacer(),
                     Text(
                       controller.namePlayer1,
-                      style: context.textStyles.textCoiny.copyWith(fontSize: 24),
+                      style: context.textStyles.textCoiny.copyWith(fontSize: 20),
                       overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              top: 12.heigth,
+              child: Container(
+                width: 500.width,
+                height: 150.heigth,
+                padding: EdgeInsets.only(left: 32.width, right: 32.width, top: 8.heigth, bottom: 8.heigth),
+                decoration: BoxDecoration(
+                  gradient: context.colorsApp.gradientScoreTwo,
+                  borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(20),
+                    bottomRight: Radius.circular(60),
+                    topLeft: Radius.circular(20),
+                    bottomLeft: Radius.circular(60),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: context.colorsApp.primaryColor.withOpacity(0.5),
+                      blurRadius: 10,
+                      spreadRadius: 5,
+                      offset: const Offset(0, 0),
                     ),
                   ],
                 ),
@@ -49,119 +76,49 @@ class ScoreGame extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.center,
-              child: Flexible(
-                child: Container(
-                  width: 400.width,
-                  height: 200.heigth,
-                  padding: const EdgeInsets.only(left: 32, right: 32, top: 8, bottom: 8),
-                  decoration: BoxDecoration(
-                    gradient: context.colorsApp.gradient,
-                    borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(20),
-                      bottomRight: Radius.circular(60),
-                      topLeft: Radius.circular(20),
-                      bottomLeft: Radius.circular(60),
+              child: Container(
+                width: 400.width,
+                height: 200.heigth,
+                padding: EdgeInsets.only(left: 80.width, right: 80.width, top: 40.heigth),
+                decoration: BoxDecoration(
+                  gradient: context.colorsApp.gradientScoreOne,
+                  borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(20),
+                    bottomRight: Radius.circular(60),
+                    topLeft: Radius.circular(20),
+                    bottomLeft: Radius.circular(60),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: context.colorsApp.whiteColor.withOpacity(0.5),
+                      blurRadius: 10,
+                      spreadRadius: 2,
+                      offset: const Offset(1, 3),
                     ),
-                  ),
-                  child: Column(
-                    children: [
-                      Text(
-                        'Placar',
-                        style: context.textStyles.textCoiny.copyWith(fontSize: 24, color: context.colorsApp.primaryColor),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            controller.xScore.toString(),
-                            style: context.textStyles.textCoiny.copyWith(fontSize: 28, color: context.colorsApp.primaryColor),
-                          ),
-                          Text(
-                            ' - ',
-                            style: context.textStyles.textCoiny.copyWith(fontSize: 28, color: context.colorsApp.primaryColor),
-                          ),
-                          Text(
-                            controller.oScore.toString(),
-                            style: context.textStyles.textCoiny.copyWith(fontSize: 28, color: context.colorsApp.primaryColor),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      controller.xScore.toString(),
+                      style: context.textStyles.textCoiny.copyWith(fontSize: 28, color: context.colorsApp.whiteColor),
+                    ),
+                    Text(
+                      ' - ',
+                      style: context.textStyles.textCoiny.copyWith(fontSize: 28, color: context.colorsApp.whiteColor),
+                    ),
+                    Text(
+                      controller.oScore.toString(),
+                      style: context.textStyles.textCoiny.copyWith(fontSize: 28, color: context.colorsApp.whiteColor),
+                    ),
+                  ],
                 ),
               ),
             ),
-            // Container(
-            //   width: double.maxFinite,
-            //   alignment: Alignment.centerLeft,
-            //   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-            //   decoration: const BoxDecoration(
-            //     color: Colors.red,
-            //     borderRadius: BorderRadius.only(bottomRight: Radius.circular(10), topRight: Radius.circular(10)),
-            //   ),
-            //   child: Text(
-            //     controller.namePlayer2,
-            //     style: context.textStyles.textCoiny.copyWith(fontSize: 24),
-            //   ),
-            // ),
           ],
         );
-        // return Row(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: [
-        //     Container(
-        //       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-        //       decoration: const BoxDecoration(
-        //         color: Colors.green,
-        //         borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), topLeft: Radius.circular(10)),
-        //       ),
-        //       child: Text(
-        //         controller.namePlayer1,
-        //         style: context.textStyles.textCoiny.copyWith(fontSize: 24),
-        //         overflow: TextOverflow.ellipsis,
-        //       ),
-        //     ),
-        //     Container(
-        //         padding: const EdgeInsets.only(left: 32, right: 32, top: 8, bottom: 8),
-        //         decoration: BoxDecoration(
-        //           gradient: context.colorsApp.gradient,
-        //           borderRadius: const BorderRadius.only(
-        //             topRight: Radius.circular(10),
-        //             bottomRight: Radius.circular(40),
-        //             topLeft: Radius.circular(10),
-        //             bottomLeft: Radius.circular(40),
-        //           ),
-        //         ),
-        //         child: Row(
-        //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //           children: [
-        //             Text(
-        //               controller.xScore.toString(),
-        //               style: context.textStyles.textCoiny.copyWith(fontSize: 28, color: context.colorsApp.primaryColor),
-        //             ),
-        //             Text(
-        //               ' - ',
-        //               style: context.textStyles.textCoiny.copyWith(fontSize: 28, color: context.colorsApp.primaryColor),
-        //             ),
-        //             Text(
-        //               controller.oScore.toString(),
-        //               style: context.textStyles.textCoiny.copyWith(fontSize: 28, color: context.colorsApp.primaryColor),
-        //             ),
-        //           ],
-        //         )),
-        //     Container(
-        //       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-        //       decoration: const BoxDecoration(
-        //         color: Colors.red,
-        //         borderRadius: BorderRadius.only(bottomRight: Radius.circular(10), topRight: Radius.circular(10)),
-        //       ),
-        //       child: Text(
-        //         controller.namePlayer2,
-        //         style: context.textStyles.textCoiny.copyWith(fontSize: 24),
-        //       ),
-        //     ),
-        //   ],
-        // );
       },
     );
   }

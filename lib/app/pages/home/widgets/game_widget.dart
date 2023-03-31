@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jogo_da_velha/app/core/extensions/responsive.dart';
 import 'package:jogo_da_velha/app/core/ui/styles/colors_app.dart';
 import 'package:jogo_da_velha/app/core/ui/styles/text_app.dart';
 import 'package:jogo_da_velha/app/pages/home/controller/home_controller.dart';
@@ -12,8 +13,8 @@ class GameWidget extends StatelessWidget {
     return Consumer<HomeController>(
       builder: (_, controller, __) {
         return SizedBox(
-          height: 400,
-          width: 400,
+          height: 1200.heigth,
+          width: 1200.width,
           child: GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
               itemCount: 9,
@@ -30,7 +31,8 @@ class GameWidget extends StatelessWidget {
                       border: Border.all(color: context.colorsApp.backgroundColor, width: 5),
                       color: controller.matched.contains(index) ? context.colorsApp.matched : context.colorsApp.primaryColor,
                     ),
-                    child: Center(
+                    child: Padding(
+                      padding: EdgeInsets.only(bottom: 50.heigth),
                       child: Text(
                         controller.board[index],
                         style: context.textStyles.textCoiny.copyWith(fontSize: 90),

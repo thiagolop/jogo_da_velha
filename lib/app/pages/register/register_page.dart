@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jogo_da_velha/app/core/extensions/responsive.dart';
 import 'package:jogo_da_velha/app/core/inputs/custon_elevated_buttom.dart';
 import 'package:jogo_da_velha/app/core/ui/styles/colors_app.dart';
 import 'package:jogo_da_velha/app/core/ui/styles/text_app.dart';
@@ -19,7 +20,7 @@ class RegisterPage extends StatelessWidget {
             child: Scaffold(
               backgroundColor: context.colorsApp.backgroundColor,
               body: Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16, top: 90),
+                padding: EdgeInsets.only(left: 32.width, right: 32.width, top: 180.heigth),
                 child: ListView(
                   physics: const BouncingScrollPhysics(),
                   children: [
@@ -32,35 +33,35 @@ class RegisterPage extends StatelessWidget {
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        const SizedBox(height: 60),
+                        SizedBox(height: 180.heigth),
                         TextFormField(
                           style: context.textStyles.textCoiny.copyWith(color: context.colorsApp.primaryColor, fontSize: 18),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: controller.namePlayer1Controller,
                           validator: (value) {
-                            if (value == null || value.isEmpty) {
+                            if (controller.namePlayer1.isEmpty) {
                               return 'Campo obrigatório';
-                            } else if (value.length < 3) {
+                            } else if (controller.namePlayer1.length < 3) {
                               return 'Nome deve ter no mínimo 3 caracteres';
-                            } else if (value.length > 9) {
+                            } else if (controller.namePlayer1.length > 9) {
                               return 'Nome deve ter no máximo 10 caracteres';
-                            } else if (value.contains(' ')) {
+                            } else if (controller.namePlayer1.contains(' ')) {
                               return 'Nome não deve conter espaços';
-                            } else if (value.contains(RegExp(r'[0-9]'))) {
+                            } else if (controller.namePlayer1.contains(RegExp(r'[0-9]'))) {
                               return 'Nome não deve conter números';
-                            } else if (value.contains(RegExp(r'[!@#<>?":_`~;[\]\\|=+)(*&^%0-9-]'))) {
+                            } else if (controller.namePlayer1.contains(RegExp(r'[!@#<>?":_`~;[\]\\|=+)(*&^%0-9-]'))) {
                               return 'Nome não deve conter caracteres especiais';
-                            } else if (value.contains(RegExp(r'[.,]'))) {
+                            } else if (controller.namePlayer1.contains(RegExp(r'[.,]'))) {
                               return 'Nome não deve conter caracteres especiais';
-                            } else if (value.contains(RegExp(r'[áéíóúàèìòùâêîôûãõäëïöü]'))) {
+                            } else if (controller.namePlayer1.contains(RegExp(r'[áéíóúàèìòùâêîôûãõäëïöü]'))) {
                               return 'Nome não deve conter caracteres especiais';
-                            } else if (value.contains(RegExp(r'[ÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÃÕÄËÏÖÜ]'))) {
+                            } else if (controller.namePlayer1.contains(RegExp(r'[ÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÃÕÄËÏÖÜ]'))) {
                               return 'Nome não deve conter caracteres especiais';
-                            } else if (value.contains(RegExp(r'[çÇ]'))) {
+                            } else if (controller.namePlayer1.contains(RegExp(r'[çÇ]'))) {
                               return 'Nome não deve conter caracteres especiais';
-                            } else if (value.contains(RegExp(r'[ñÑ]'))) {
+                            } else if (controller.namePlayer1.contains(RegExp(r'[ñÑ]'))) {
                               return 'Nome não deve conter caracteres especiais';
-                            } else if (value.contains(RegExp(r'[ýÿ]'))) {
+                            } else if (controller.namePlayer1.contains(RegExp(r'[ýÿ]'))) {
                               return 'Nome não deve conter caracteres especiais';
                             }
                             return null;
@@ -79,17 +80,17 @@ class RegisterPage extends StatelessWidget {
                             fillColor: context.colorsApp.whiteColor,
                           ),
                         ),
-                        const SizedBox(height: 16),
+                        SizedBox(height: 32.heigth),
                         TextFormField(
                           style: context.textStyles.textCoiny.copyWith(color: context.colorsApp.primaryColor, fontSize: 18),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           textInputAction: TextInputAction.send,
                           controller: controller.namePlayer2Controller,
                           validator: (value) {
-                            if (value == null || value.isEmpty) {
+                            if (controller.namePlayer2.isEmpty) {
                               return 'Campo obrigatório';
                             }
-                            if (value == controller.namePlayer1Controller.text) {
+                            if (controller.namePlayer2 == controller.namePlayer1Controller.text) {
                               return 'Nome do jogador 2 deve ser diferente do jogador 1';
                             }
                             return null;
@@ -108,15 +109,14 @@ class RegisterPage extends StatelessWidget {
                             fillColor: context.colorsApp.whiteColor,
                           ),
                         ),
-                        const SizedBox(height: 60),
+                        SizedBox(height: 180.heigth),
                         CustomElevatedButtom(
-                          onPressed: () {
-                            if (controller.formKey.currentState!.validate()) {
-                              Navigator.pushNamed(context, '/home');
-                            }
-                          },
-                          label: 'Jogar',
-                        )
+                            onPressed: () {
+                              if (controller.formKey.currentState!.validate()) {
+                                Navigator.pushNamed(context, '/home');
+                              }
+                            },
+                            label: 'Jogar')
                       ],
                     ),
                   ],

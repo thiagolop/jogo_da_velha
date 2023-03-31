@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jogo_da_velha/app/core/extensions/responsive.dart';
 import 'package:jogo_da_velha/app/core/ui/styles/colors_app.dart';
 import 'package:jogo_da_velha/app/core/ui/styles/text_app.dart';
 
@@ -20,7 +21,10 @@ class CustomElevatedButtom extends StatelessWidget {
           side: BorderSide(color: context.colorsApp.whiteColor, width: 2),
         ),
       ),
-      child: Text(label, style: context.textStyles.textCoiny.copyWith(color: context.colorsApp.whiteColor, fontSize: 26)),
+      child: Padding(
+        padding: EdgeInsets.only(bottom: 30.heigth),
+        child: Text(label, style: context.textStyles.textCoiny.copyWith(color: context.colorsApp.whiteColor, fontSize: 26)),
+      ),
     );
   }
 }

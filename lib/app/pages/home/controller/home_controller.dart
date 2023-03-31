@@ -11,6 +11,7 @@ class HomeController with ChangeNotifier {
   int completedFields = 0;
   bool isGameOver = false;
   bool isGaming = true;
+  String jogador = '';
   TextEditingController namePlayer1Controller = TextEditingController();
   TextEditingController namePlayer2Controller = TextEditingController();
 
@@ -22,9 +23,11 @@ class HomeController with ChangeNotifier {
   void play(int index) {
     if (oTurn && board[index] == '') {
       board[index] = 'O';
+      selectPlayer();
       notifyListeners();
     } else if (!oTurn && board[index] == '') {
       board[index] = 'X';
+      selectPlayer();
       notifyListeners();
     }
     oTurn = !oTurn;
@@ -34,10 +37,11 @@ class HomeController with ChangeNotifier {
 
   void reset() {
     board = ['', '', '', '', '', '', '', '', ''];
-    oTurn = true;
+    notifyListeners();
     isGaming = true;
     matched = [];
     winner = '';
+    vencedor = '';
     notifyListeners();
   }
 
@@ -68,6 +72,16 @@ class HomeController with ChangeNotifier {
       notifyListeners();
     } else {
       vencedor = 'Empate';
+      notifyListeners();
+    }
+  }
+
+  void selectPlayer() {
+    if (oTurn) {
+      jogador = 'Vez de $namePlayer2';
+      notifyListeners();
+    } else {
+      jogador = 'Vez de $namePlayer1';
       notifyListeners();
     }
   }

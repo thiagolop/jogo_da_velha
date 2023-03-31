@@ -23,18 +23,18 @@ class HomePage extends StatelessWidget {
           backgroundColor: context.colorsApp.backgroundColor,
           body: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.only(
-                top: 10.heigth,
-                left: 16.width,
-                right: 16.width,
-                bottom: 32.heigth,
-              ),
+              padding: EdgeInsets.only(top: 40.heigth, left: 16.width, right: 16.width, bottom: 32.heigth),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const ScoreGame(),
                   SizedBox(height: 60.heigth),
+                  Visibility(
+                    visible: controller.isGaming,
+                    child: Text(controller.jogador, style: context.textStyles.textCoiny),
+                  ),
+                  SizedBox(height: 40.heigth),
                   const GameWidget(),
                   SizedBox(height: 16.heigth),
                   Text(controller.vencedor, style: context.textStyles.textCoiny),
