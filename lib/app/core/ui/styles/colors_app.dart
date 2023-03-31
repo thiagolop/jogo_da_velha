@@ -10,14 +10,21 @@ class ColorsApp {
     return _instance!;
   }
 
-  Color get primaryColor => const Color(0xFF302775);
-  Color get primaryColorDark => const Color(0xFF1E1A3D);
-  Color get primaryColorLight => const Color(0xFF4F4A9D);
-  Color get secondaryColor => const Color(0xFF258841);
-  Color get secondaryColorDark => const Color(0xFF1A5A2B);
-  Color get secondaryColorLight => const Color(0xFF3DAF5F);
-  Color get play01 => const Color(0xFFFF0000);
-  Color get play02 => const Color(0xFF2600FF);
+  Color get primaryColor => const Color(0xFF000000);
+  Color get matched => const Color(0xFFFF0000);
+  Color get backgroundColor => const Color(0xFF2E2D31);
+  Color get whiteColor => const Color(0xFFFFFFFF);
+
+  Gradient get gradient => LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          Colors.green[800]!,
+          Colors.green,
+          Colors.red,
+          Colors.red[800]!,
+        ],
+      );
 }
 
 extension ColorsAppExtension on BuildContext {

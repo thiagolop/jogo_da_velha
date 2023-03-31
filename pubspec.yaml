@@ -36,6 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   provider: ^6.0.5
+  google_fonts: ^4.0.3
 
 dev_dependencies:
   flutter_test:
@@ -75,10 +76,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: Coiny-Regular
-      fonts:
-        - asset: assets/fonts/Coiny-Regular.ttf
+  # fonts:
+  #   - family: Coiny-Regular
+  #     fonts:
+  #       - asset: assets/fonts/Coiny-Regular.ttf
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf

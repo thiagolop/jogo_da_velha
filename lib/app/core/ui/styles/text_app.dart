@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TextStyles {
   static TextStyles? _instance;
@@ -9,14 +10,7 @@ class TextStyles {
     return _instance!;
   }
 
-  String get font => 'Coiny';
-
-  TextStyle get textRegular => TextStyle(fontFamily: font, fontWeight: FontWeight.w400);
-  TextStyle get textMedium => TextStyle(fontFamily: font, fontWeight: FontWeight.w500);
-  TextStyle get textSemiBold => TextStyle(fontFamily: font, fontWeight: FontWeight.w600);
-  TextStyle get textBold => TextStyle(fontFamily: font, fontWeight: FontWeight.w700);
-  TextStyle get textExtraBold => TextStyle(fontFamily: font, fontWeight: FontWeight.w800);
-  TextStyle get textBlack => TextStyle(fontFamily: font, fontWeight: FontWeight.w900);
+  TextStyle get textCoiny => GoogleFonts.coiny(textStyle: const TextStyle(fontSize: 40, color: Colors.white));
 }
 
 extension TextStylesExtension on BuildContext {
