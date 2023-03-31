@@ -1,16 +1,28 @@
-# jogo_da_velha
+# Jogo da Velha em Flutter
+Este é um simples aplicativo de Jogo da Velha, criado usando o framework Flutter.
 
-A new Flutter project.
+# Funcionalidades
+Jogue o clássico Jogo da Velha contra outro jogador.
+O jogo possui marcação de vitória automática e permite reiniciar o jogo a qualquer momento.
+# Como usar
+Certifique-se de ter o Flutter instalado em seu computador.
 
-## Getting Started
+Clone este repositório usando git clone https://github.com/seu-usuario/jogo-da-velha-flutter.
 
-This project is a starting point for a Flutter application.
+Abra o diretório do projeto no seu editor de código.
 
-A few resources to get you started if this is your first Flutter project:
+Execute flutter run no terminal para executar o aplicativo no emulador ou dispositivo conectado.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Contribuição
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou um pull request.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+https://user-images.githubusercontent.com/109871891/229169997-fe236af9-ce69-4b77-b385-36bac9537129.mp4
+
+
+
+# Licença
+Este projeto é licenciado sob a Licença MIT - consulte o arquivo LICENSE para obter detalhes.
+
+
+
+
