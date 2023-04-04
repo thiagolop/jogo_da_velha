@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jogo_da_velha/app/core/extensions/responsive.dart';
 import 'package:jogo_da_velha/app/core/inputs/custon_elevated_buttom.dart';
+import 'package:jogo_da_velha/app/core/ui/helpes/size_extensions.dart';
 import 'package:jogo_da_velha/app/core/ui/styles/colors_app.dart';
 import 'package:jogo_da_velha/app/core/ui/styles/text_app.dart';
 import 'package:jogo_da_velha/app/pages/home/controller/home_controller.dart';
@@ -20,7 +20,7 @@ class RegisterPage extends StatelessWidget {
             child: Scaffold(
               backgroundColor: context.colorsApp.backgroundColor,
               body: Padding(
-                padding: EdgeInsets.only(left: 32.width, right: 32.width, top: 180.heigth),
+                padding: EdgeInsets.symmetric(horizontal: context.percentWith(0.05), vertical: context.percentHeight(0.05)),
                 child: ListView(
                   physics: const BouncingScrollPhysics(),
                   children: [
@@ -33,7 +33,7 @@ class RegisterPage extends StatelessWidget {
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        SizedBox(height: 180.heigth),
+                        SizedBox(height: context.percentHeight(0.15)),
                         TextFormField(
                           style: context.textStyles.textCoiny.copyWith(color: context.colorsApp.primaryColor, fontSize: 18),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -80,7 +80,7 @@ class RegisterPage extends StatelessWidget {
                             fillColor: context.colorsApp.whiteColor,
                           ),
                         ),
-                        SizedBox(height: 64.heigth),
+                        SizedBox(height: context.percentHeight(0.05)),
                         TextFormField(
                           style: context.textStyles.textCoiny.copyWith(color: context.colorsApp.primaryColor, fontSize: 18),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -92,6 +92,28 @@ class RegisterPage extends StatelessWidget {
                             }
                             if (controller.namePlayer2 == controller.namePlayer1Controller.text) {
                               return 'Nome do jogador 2 deve ser diferente do jogador 1';
+                            } else if (controller.namePlayer2.length < 3) {
+                              return 'Nome deve ter no mínimo 3 caracteres';
+                            } else if (controller.namePlayer2.length > 9) {
+                              return 'Nome deve ter no máximo 10 caracteres';
+                            } else if (controller.namePlayer2.contains(' ')) {
+                              return 'Nome não deve conter espaços';
+                            } else if (controller.namePlayer2.contains(RegExp(r'[0-9]'))) {
+                              return 'Nome não deve conter números';
+                            } else if (controller.namePlayer2.contains(RegExp(r'[!@#<>?":_`~;[\]\\|=+)(*&^%0-9-]'))) {
+                              return 'Nome não deve conter caracteres especiais';
+                            } else if (controller.namePlayer2.contains(RegExp(r'[.,]'))) {
+                              return 'Nome não deve conter caracteres especiais';
+                            } else if (controller.namePlayer2.contains(RegExp(r'[áéíóúàèìòùâêîôûãõäëïöü]'))) {
+                              return 'Nome não deve conter caracteres especiais';
+                            } else if (controller.namePlayer2.contains(RegExp(r'[ÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÃÕÄËÏÖÜ]'))) {
+                              return 'Nome não deve conter caracteres especiais';
+                            } else if (controller.namePlayer2.contains(RegExp(r'[çÇ]'))) {
+                              return 'Nome não deve conter caracteres especiais';
+                            } else if (controller.namePlayer2.contains(RegExp(r'[ñÑ]'))) {
+                              return 'Nome não deve conter caracteres especiais';
+                            } else if (controller.namePlayer2.contains(RegExp(r'[ýÿ]'))) {
+                              return 'Nome não deve conter caracteres especiais';
                             }
                             return null;
                           },
@@ -109,7 +131,7 @@ class RegisterPage extends StatelessWidget {
                             fillColor: context.colorsApp.whiteColor,
                           ),
                         ),
-                        SizedBox(height: 180.heigth),
+                        SizedBox(height: context.percentHeight(0.1)),
                         CustomElevatedButtom(
                             onPressed: () {
                               if (controller.formKey.currentState!.validate()) {
