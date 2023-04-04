@@ -24,11 +24,9 @@ class OnTurnText extends StatelessWidget {
           border: Border.all(color: context.colorsApp.backgroundColor, width: 2),
           color: Colors.black.withOpacity(0.4),
         ),
-        child: Expanded(
-          child: Text(
-            text,
-            style: context.textStyles.textCoiny.copyWith(color: context.colorsApp.whiteColor),
-          ),
+        child: Text(
+          text,
+          style: context.textStyles.textCoiny.copyWith(color: context.colorsApp.whiteColor),
         ),
       ),
     );
