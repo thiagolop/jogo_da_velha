@@ -80,7 +80,7 @@ class RegisterPage extends StatelessWidget {
                             fillColor: context.colorsApp.whiteColor,
                           ),
                         ),
-                        SizedBox(height: 32.heigth),
+                        SizedBox(height: 64.heigth),
                         TextFormField(
                           style: context.textStyles.textCoiny.copyWith(color: context.colorsApp.primaryColor, fontSize: 18),
                           autovalidateMode: AutovalidateMode.onUserInteraction,

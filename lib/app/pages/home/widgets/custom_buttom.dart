@@ -17,7 +17,7 @@ class CustomButtom extends StatelessWidget {
                     onPressed: () {
                       controller.reset();
                     },
-                    label: 'Reset Game')),
+                    label: 'Reiniciar')),
             const SizedBox(width: 16),
             Expanded(
                 child: CustomElevatedButtom(
@@ -25,7 +25,7 @@ class CustomButtom extends StatelessWidget {
                       controller.resetScore();
                       controller.reset();
                     },
-                    label: 'Reset Score')),
+                    label: 'Resetar')),
           ],
         );
       },

@@ -32,13 +32,17 @@ class HomePage extends StatelessWidget {
                   SizedBox(height: 60.heigth),
                   Visibility(
                     visible: controller.isGaming,
-                    child: Text(controller.jogador, style: context.textStyles.textCoiny),
+                    child: Text(
+                      controller.jogador,
+                      style: context.textStyles.textCoiny.copyWith(
+                        color: controller.oTurn ? context.colorsApp.colorO : context.colorsApp.colorX,
+                      ),
+                    ),
                   ),
-                  SizedBox(height: 40.heigth),
+                  SizedBox(height: 80.heigth),
                   const GameWidget(),
-                  SizedBox(height: 16.heigth),
                   Text(controller.vencedor, style: context.textStyles.textCoiny),
-                  SizedBox(height: 10.heigth),
+                  SizedBox(height: 80.heigth),
                   const CustomButtom(),
                 ],
               ),

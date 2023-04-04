@@ -11,9 +11,11 @@ class ColorsApp {
   }
 
   Color get primaryColor => const Color(0xFF000000);
-  Color get matched => const Color(0xFFFF0000);
+  Color get matched => const Color(0xFF00FF0D);
   Color get backgroundColor => const Color(0xFF2E2D31);
   Color get whiteColor => const Color(0xFFFFFFFF);
+  Color get colorX => const Color(0xFF070ADF);
+  Color get colorO => const Color(0xFFE90000);
 
   Gradient get gradientName => const LinearGradient(
         begin: Alignment.topLeft,
@@ -31,6 +33,12 @@ class ColorsApp {
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
         colors: [Color.fromARGB(255, 1, 11, 144), Color.fromARGB(255, 135, 2, 2)],
+      );
+
+  Gradient get gradientBackgroundColor => const LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [Color(0xFF070ADF), Color(0xFF171AAC), Colors.red, Color(0xFFE90000)],
       );
 }
 

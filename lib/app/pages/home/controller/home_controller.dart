@@ -78,10 +78,10 @@ class HomeController with ChangeNotifier {
 
   void selectPlayer() {
     if (oTurn) {
-      jogador = 'Vez de $namePlayer2';
+      jogador = 'Sua vez $namePlayer2';
       notifyListeners();
     } else {
-      jogador = 'Vez de $namePlayer1';
+      jogador = 'Sua vez $namePlayer1';
       notifyListeners();
     }
   }
@@ -143,7 +143,7 @@ class HomeController with ChangeNotifier {
       isGaming = false;
       notifyListeners();
     }
-    if (!board.contains('') && winner == '') {
+    if (!board.contains('') && winner == '' && isGaming) {
       getWinner('Empate');
       isGaming = false;
       notifyListeners();
