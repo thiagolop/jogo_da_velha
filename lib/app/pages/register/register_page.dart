@@ -41,6 +41,7 @@ class RegisterPage extends StatelessWidget {
                           ),
                           SizedBox(height: context.percentHeight(0.15)),
                           TextFormField(
+                            maxLength: 10,
                             style: context.textStyles.textCoiny.copyWith(color: context.colorsApp.primaryColor, fontSize: 18),
                             autovalidateMode: AutovalidateMode.onUserInteraction,
                             controller: controller.namePlayer1Controller,
@@ -88,6 +89,7 @@ class RegisterPage extends StatelessWidget {
                           ),
                           SizedBox(height: context.percentHeight(0.05)),
                           TextFormField(
+                            maxLength: 10,
                             style: context.textStyles.textCoiny.copyWith(color: context.colorsApp.primaryColor, fontSize: 18),
                             autovalidateMode: AutovalidateMode.onUserInteraction,
                             textInputAction: TextInputAction.send,

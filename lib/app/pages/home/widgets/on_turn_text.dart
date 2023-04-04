@@ -18,15 +18,17 @@ class OnTurnText extends StatelessWidget {
     return Visibility(
       visible: controller.isGaming,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: context.percentWith(0.1), vertical: 8),
+        padding: EdgeInsets.symmetric(horizontal: context.percentWith(0.08), vertical: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           border: Border.all(color: context.colorsApp.backgroundColor, width: 2),
           color: Colors.black.withOpacity(0.4),
         ),
-        child: Text(
-          text,
-          style: context.textStyles.textCoiny.copyWith(color: context.colorsApp.whiteColor),
+        child: Expanded(
+          child: Text(
+            text,
+            style: context.textStyles.textCoiny.copyWith(color: context.colorsApp.whiteColor),
+          ),
         ),
       ),
     );
