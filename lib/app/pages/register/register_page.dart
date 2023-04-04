@@ -70,7 +70,7 @@ class RegisterPage extends StatelessWidget {
                             label: const Text('Nome do Jogador 1'),
                             floatingLabelBehavior: FloatingLabelBehavior.never,
                             hintStyle: context.textStyles.textCoiny.copyWith(color: context.colorsApp.primaryColor, fontSize: 16),
-                            errorStyle: context.textStyles.textCoiny.copyWith(color: context.colorsApp.matched, fontSize: 16),
+                            errorStyle: context.textStyles.textCoiny.copyWith(color: context.colorsApp.redColor, fontSize: 16),
                             labelStyle: context.textStyles.textCoiny.copyWith(color: context.colorsApp.primaryColor, fontSize: 18),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
@@ -99,7 +99,7 @@ class RegisterPage extends StatelessWidget {
                             label: const Text('Nome do Jogador 2'),
                             floatingLabelBehavior: FloatingLabelBehavior.never,
                             hintStyle: context.textStyles.textCoiny.copyWith(color: context.colorsApp.primaryColor, fontSize: 16),
-                            errorStyle: context.textStyles.textCoiny.copyWith(color: context.colorsApp.matched, fontSize: 16),
+                            errorStyle: context.textStyles.textCoiny.copyWith(color: context.colorsApp.redColor, fontSize: 16),
                             labelStyle: context.textStyles.textCoiny.copyWith(color: context.colorsApp.primaryColor, fontSize: 18),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),

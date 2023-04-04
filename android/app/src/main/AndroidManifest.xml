@@ -2,9 +2,9 @@
     package="com.example.jogo_da_velha">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="jogo_da_velha"
+        android:label="jogo da velha"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"

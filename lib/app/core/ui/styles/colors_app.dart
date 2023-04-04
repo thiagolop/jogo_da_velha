@@ -14,6 +14,7 @@ class ColorsApp {
   Color get matched => const Color(0xFF00FF0D);
   Color get backgroundColor => const Color(0xFF2E2D31);
   Color get whiteColor => const Color(0xFFFFFFFF);
+  Color get redColor => const Color(0xFFE90000);
   Color get colorX => const Color(0xFF070ADF);
   Color get colorO => const Color(0xFFE90000);
 
