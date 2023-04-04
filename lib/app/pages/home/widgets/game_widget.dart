@@ -24,19 +24,22 @@ class GameWidget extends StatelessWidget {
                   onTap: () {
                     if (controller.isGaming) controller.play(index);
                   },
-                  child: Container(
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: context.colorsApp.backgroundColor, width: 5),
-                      color: controller.matched.contains(index) ? context.colorsApp.matched : context.colorsApp.primaryColor,
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.only(bottom: 50.heigth),
-                      child: Text(
-                        controller.board[index],
-                        style: context.textStyles.textCoiny.copyWith(fontSize: 90),
-                        textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: context.colorsApp.backgroundColor, width: 2),
+                        color: controller.matched.contains(index) ? context.colorsApp.matched : context.colorsApp.primaryColor,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: 50.heigth),
+                        child: Text(
+                          controller.board[index],
+                          style: context.textStyles.textCoiny.copyWith(fontSize: 90),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ),
                   ),

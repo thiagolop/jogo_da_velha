@@ -39,7 +39,7 @@ class ColorsApp {
   Gradient get gradientBackgroundColor => const LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        colors: [Color(0xFF070ADF), Color(0xFF171AAC), Colors.red, Color(0xFFE90000)],
+        colors: [Color.fromARGB(255, 0, 0, 0), Color.fromARGB(255, 43, 42, 42)],
       );
 }
 
