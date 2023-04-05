@@ -9,14 +9,49 @@ import 'package:jogo_da_velha/app/pages/home/widgets/on_turn_text.dart';
 import 'package:jogo_da_velha/app/pages/home/widgets/score_game.dart';
 import 'package:provider/provider.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<HomeController>().loadBanner(context);
+  }
+
+  @override
+  void dispose() {
+    context.read<HomeController>().myBanner.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeController>(
       builder: (_, controller, __) {
         return Scaffold(
+          bottomNavigationBar: Container(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  spreadRadius: 0,
+                  blurRadius: 10,
+                  offset: const Offset(0, -3), // changes position of shadow
+                ),
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                controller.adContainer(),
+              ],
+            ),
+          ),
           body: Container(
             height: double.maxFinite,
             decoration: const BoxDecoration(

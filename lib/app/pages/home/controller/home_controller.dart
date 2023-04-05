@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class HomeController with ChangeNotifier {
   bool oTurn = true;
@@ -148,5 +149,61 @@ class HomeController with ChangeNotifier {
       isGaming = false;
       notifyListeners();
     }
+  }
+
+  late BannerAdListener listener;
+  late BannerAd myBanner;
+  late AdWidget adWidget;
+
+  baneerListener(BuildContext context) {
+    listener = BannerAdListener(
+      // Called when an ad is successfully received.
+      onAdLoaded: (Ad ad) => debugPrint('Ad loaded.'),
+      // Called when an ad request failed.
+      onAdFailedToLoad: (Ad ad, LoadAdError error) {
+        // Dispose the ad here to free resources.
+        ad.dispose();
+        banner();
+        myBanner.load();
+        debugPrint('Ad failed to load: $error');
+        // snackBarMessenger(context: context, message: 'Falha ao carregar o banner #004');
+      },
+      // Called when an ad opens an overlay that covers the screen.
+      onAdOpened: (Ad ad) => debugPrint('Ad opened.'),
+      // Called when an ad removes an overlay that covers the screen.
+      onAdClosed: (Ad ad) => debugPrint('Ad closed.'),
+      // Called when an impression occurs on the ad.
+      onAdImpression: (Ad ad) => debugPrint('Ad impression.'),
+      onAdWillDismissScreen: (Ad ad) => debugPrint('Ad will dismiss screen.'),
+      onAdClicked: (Ad ad) {
+        debugPrint('Ad clicked.');
+      },
+    );
+  }
+
+  banner() {
+    myBanner = BannerAd(
+      adUnitId: 'ca-app-pub-4608915439975684/9914757075',
+      size: AdSize.banner,
+      request: const AdRequest(),
+      listener: listener,
+    );
+
+    adWidget = AdWidget(ad: myBanner);
+  }
+
+  loadBanner(BuildContext context) {
+    baneerListener(context);
+    banner();
+    myBanner.load();
+  }
+
+  adContainer() {
+    return Container(
+      alignment: Alignment.center,
+      width: myBanner.size.width.toDouble(),
+      height: myBanner.size.height.toDouble(),
+      child: adWidget,
+    );
   }
 }
