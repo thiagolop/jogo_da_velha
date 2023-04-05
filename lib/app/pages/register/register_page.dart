@@ -26,7 +26,7 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: context.percentWith(0.05), vertical: context.percentHeight(0.05)),
+                  padding: EdgeInsets.symmetric(horizontal: context.percentWith(0.05), vertical: context.percentHeight(0.02)),
                   child: ListView(
                     physics: const BouncingScrollPhysics(),
                     children: [
@@ -139,7 +139,7 @@ class RegisterPage extends StatelessWidget {
                               fillColor: context.colorsApp.whiteColor,
                             ),
                           ),
-                          SizedBox(height: context.percentHeight(0.1)),
+                          SizedBox(height: context.percentHeight(0.08)),
                           CustomElevatedButtom(
                               onPressed: () {
                                 if (controller.formKey.currentState!.validate()) {
