@@ -24,12 +24,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  void dispose() {
-    context.read<HomeController>().myBanner.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Consumer<HomeController>(
       builder: (_, controller, __) {
@@ -41,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.black.withOpacity(0.2),
                   spreadRadius: 0,
                   blurRadius: 10,
-                  offset: const Offset(0, -3), // changes position of shadow
+                  offset: const Offset(0, -3),
                 ),
               ],
             ),
@@ -74,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                     OnTurnText(controller: controller, text: controller.jogador),
                     SizedBox(height: 30.heigth),
                     const GameWidget(),
-                    Text(controller.vencedor, style: context.textStyles.textCoiny),
+                    Text(controller.vencedor, style: context.textStyles.textCoiny.copyWith(fontSize: 26)),
                     SizedBox(height: 60.heigth),
                     const CustomButtom(),
                   ],

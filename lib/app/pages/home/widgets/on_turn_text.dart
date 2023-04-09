@@ -26,7 +26,7 @@ class OnTurnText extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: context.textStyles.textCoiny.copyWith(color: context.colorsApp.whiteColor),
+          style: context.textStyles.textCoiny.copyWith(color: context.colorsApp.whiteColor, fontSize: 26),
         ),
       ),
     );
