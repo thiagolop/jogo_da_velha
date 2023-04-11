@@ -13,7 +13,6 @@ class GameWidget extends StatelessWidget {
     return Consumer<HomeController>(
       builder: (_, controller, __) {
         return Container(
-          // color: Colors.red,
           constraints: BoxConstraints(
             maxHeight: md.width * 0.9,
             maxWidth: md.width * 0.9,
@@ -41,11 +40,14 @@ class GameWidget extends StatelessWidget {
                       border: Border.all(color: context.colorsApp.backgroundColor, width: 2),
                       color: controller.matched.contains(index) ? context.colorsApp.matched : context.colorsApp.primaryColor,
                     ),
-                    child: Center(
-                      heightFactor: 0.8,
-                      child: Text(
-                        controller.board[index],
-                        style: context.textStyles.textCoiny.copyWith(fontSize: 90),
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Center(
+                        heightFactor: 0.8,
+                        child: Text(
+                          controller.board[index],
+                          style: context.textStyles.textCoiny.copyWith(fontSize: 90),
+                        ),
                       ),
                     ),
                   ),
