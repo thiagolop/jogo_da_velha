@@ -35,18 +35,17 @@ class GameWidget extends StatelessWidget {
                     if (controller.isGaming) controller.play(index);
                   },
                   child: Container(
-                    alignment: Alignment.center,
+                    alignment: Alignment.topCenter,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(color: context.colorsApp.backgroundColor, width: 2),
                       color: controller.matched.contains(index) ? context.colorsApp.matched : context.colorsApp.primaryColor,
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 16),
+                    child: Center(
+                      heightFactor: 0.8,
                       child: Text(
                         controller.board[index],
                         style: context.textStyles.textCoiny.copyWith(fontSize: 90),
-                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
