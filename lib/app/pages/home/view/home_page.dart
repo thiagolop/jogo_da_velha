@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jogo_da_velha/app/core/extensions/responsive.dart';
 import 'package:jogo_da_velha/app/core/ui/styles/text_app.dart';
 import 'package:jogo_da_velha/app/pages/home/controller/home_controller.dart';
 import 'package:jogo_da_velha/app/pages/home/widgets/app_bar_area.dart';
@@ -46,35 +45,43 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          body: Container(
-            height: double.maxFinite,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/background2.jpg'),
-                fit: BoxFit.cover,
+          body: ListView(
+            padding: const EdgeInsets.all(0),
+            children: [
+              Stack(
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.942,
+                    width: double.maxFinite,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/background2.jpg'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 8),
+                      const AppBarArea(),
+                      const ScoreGame(),
+                      const SizedBox(height: 8),
+                      OnTurnText(controller: controller, text: controller.jogador),
+                      const SizedBox(height: 8),
+                      const GameWidget(),
+                      Text(controller.vencedor, style: context.textStyles.textCoiny.copyWith(fontSize: 26)),
+                      const SizedBox(height: 16),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 8),
+                        child: CustomButtom(),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-            ),
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.only(top: 40.heigth, left: 16.width, right: 16.width, bottom: 32.heigth),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(height: 30.heigth),
-                    const AppBarArea(),
-                    const ScoreGame(),
-                    SizedBox(height: 30.heigth),
-                    OnTurnText(controller: controller, text: controller.jogador),
-                    SizedBox(height: 30.heigth),
-                    const GameWidget(),
-                    Text(controller.vencedor, style: context.textStyles.textCoiny.copyWith(fontSize: 26)),
-                    SizedBox(height: 60.heigth),
-                    const CustomButtom(),
-                  ],
-                ),
-              ),
-            ),
+            ],
           ),
         );
       },
